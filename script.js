@@ -26,7 +26,7 @@ $("input").on("keydown", function search(event) {
             $(".city").html("<h1>" + response.city.name + " Weather Details</h1>");
             $(".icon").html(`<img class='m-auto' src='http://openweathermap.org/img/wn/${response.list[0].weather[0].icon}.png'>`)
             $(".wind").text("Wind Speed: " + response.list[0].wind.speed);
-            $(".humidity").text("Humidity: " + response.list[0].main.humidity);
+            $(".humidity").text("Humidity: " + response.list[0].main.humidity + "%");
             var tempF = (response.list[0].main.temp - 273.15) * 1.80 + 32;
             $(".temp").text("Temperature (F) " + parseInt(tempF) + "°F");
 
@@ -46,7 +46,7 @@ $("input").on("keydown", function search(event) {
                 icon.attr('src', 'http://openweathermap.org/img/wn/' + response.list[i].weather[0].icon + '.png');
                 var forTemp = ((response.list[i].main.temp - 273.15) * 1.80 + 32);
                 temp.text('Temp: ' + forTemp.toFixed(2) + '°F');
-                humidity.text('Humidity: ' + response.list[i].main.humidity + '%')
+                humidity.text("Humidity: " + response.list[i].main.humidity + "%")
 
                 div.append(day, icon, temp, humidity);
                 forecastDisplay.append(div);
